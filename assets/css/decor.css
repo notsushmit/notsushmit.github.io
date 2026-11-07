@@ -1,0 +1,78 @@
+/* Decorative doodles: heading clusters, gutter clusters, gentle drift.
+   All decoration is aria-hidden, alt="", and never takes pointer events. */
+
+.decor, .gutter, .deco, .grounded, .ground-line { pointer-events: none; user-select: none; }
+
+/* layer over the heading row; items placed by % across, px down */
+.section-head .decor { position: absolute; inset: 0; z-index: 0; }
+.deco {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--w);
+  height: auto;
+  rotate: var(--r, 0deg);
+  animation: drift var(--dur, 8s) ease-in-out var(--delay, 0s) infinite alternate;
+}
+.deco--blob { opacity: 0.55; animation: none; }
+.deco--blob[src*="blob-green"] { opacity: 0.3; }
+
+@keyframes drift {
+  from { translate: 0 0; }
+  to { translate: 0 -5px; }
+}
+/* the curled cat's z's float up and fade */
+.divider__cat .zzz { animation: zfloat 3.6s ease-in-out infinite; transform-box: fill-box; }
+@keyframes zfloat {
+  0% { translate: 0 0; opacity: 1; }
+  70% { opacity: 1; }
+  100% { translate: 0 -26px; opacity: 0.15; }
+}
+
+/* ---------- side gutters ---------- */
+/* width of one gutter = (viewport - container) / 2 */
+.gutter {
+  --gs: 1;                     /* grows with the gutter on very wide screens */
+  position: absolute;
+  top: var(--top);
+  width: calc((100% - var(--max-width)) / 2 - var(--space-5));
+  height: calc(320px * var(--gs));
+  display: none;
+}
+.gutter .deco { width: calc(var(--w) * var(--gs)); top: calc(var(--y) * var(--gs)); }
+@media (min-width: 1650px) { .gutter { --gs: 1.3; } }
+@media (min-width: 1900px) { .gutter { --gs: 1.6; } }
+.gutter--l { left: 0; }
+.gutter--r { right: 0; }
+@media (min-width: 1400px) {
+  .gutter { display: block; }
+}
+/* below 1100px a few clusters come back as a small inline row of doodles */
+@media (max-width: 1099.98px) {
+  .gutter--inline {
+    display: flex;
+    position: static;
+    width: auto;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-6);
+    margin: var(--space-6) auto 0;
+    order: 99;
+  }
+  .gutter--inline .deco { position: static; width: calc(var(--w) * 0.8); top: auto; }
+  .gutter--inline .deco--blob { display: none; }
+  /* inline rows sit after the section content */
+  main > section.section { display: flex; flex-direction: column; }
+  main > section.section > .wrap { width: 100%; }
+}
+
+/* phones: keep only heading doodles marked for small screens, pushed right */
+@media (max-width: 699.98px) {
+  .section-head .deco--wide { display: none; }
+  .section-head .deco--m { left: auto; right: 0; width: calc(var(--w) * 0.85); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deco, .divider__cat .zzz { animation: none !important; }
+}

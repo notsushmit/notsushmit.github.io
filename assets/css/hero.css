@@ -1,0 +1,102 @@
+/* Hero: text left, illustrated scene right; stacked below 800px. */
+
+main > section.hero {
+  max-width: calc(var(--max-width) + 2 * var(--gutter));
+  padding-top: clamp(var(--space-6), 6vw, var(--space-9));
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-6) clamp(var(--space-5), 4vw, var(--space-8));
+}
+.hero__text { max-width: 34rem; }
+.hero .tagline {
+  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+  line-height: 1.55;
+  margin: 0 0 var(--space-6);
+  max-width: 32rem;
+}
+
+@media (max-width: 799.98px) {
+  main > section.hero { grid-template-columns: minmax(0, 1fr); }
+  .hero__scene { max-width: 30rem; width: 100%; margin: 0 auto; }
+}
+
+/* ---------- Say hi: a drawn speech bubble ---------- */
+.say-hi .button { anchor-name: --say-hi; }
+.say-hi-menu {
+  margin: 0;
+  padding: var(--space-2) var(--space-2);
+  min-width: 11.5rem;
+  color: var(--ink);
+  box-shadow: 4px 4px 0 var(--sky);
+  overflow: visible;
+}
+.say-hi-menu ul { list-style: none; margin: 0; padding: 0; }
+.say-hi-menu a {
+  display: flex;
+  align-items: center;
+  min-height: var(--tap);
+  padding: 0 var(--space-3);
+  text-decoration: none;
+  background-position: var(--space-3) calc(100% - 6px);
+  background-size: 0 0.42em;
+}
+@media (hover: hover) {
+  .say-hi-menu a:hover { background-size: 4.5rem 0.42em; }
+}
+.say-hi-menu a:focus-visible { outline-offset: -3px; }
+
+/* bubble tail, pointing up at the button */
+.say-hi-menu::before {
+  content: "";
+  position: absolute;
+  top: -11px;
+  left: 28px;
+  width: 18px;
+  height: 18px;
+  background: var(--paper);
+  border-left: var(--line) solid var(--ink);
+  border-top: var(--line) solid var(--ink);
+  border-top-left-radius: 4px;
+  transform: rotate(45deg) skew(6deg, 6deg);
+}
+
+@supports (position-anchor: --say-hi) {
+  .say-hi-menu {
+    position-anchor: --say-hi;
+    inset: auto;
+    top: anchor(bottom);
+    left: anchor(left);
+    margin-top: 16px;
+  }
+}
+/* No anchor positioning: the browser centres the popover, so drop the tail. */
+@supports not (position-anchor: --say-hi) {
+  .say-hi-menu { margin: auto; }
+  .say-hi-menu::before { display: none; }
+}
+
+/* ---------- scene ---------- */
+.hero__scene {
+  position: relative;
+  aspect-ratio: 6 / 5;
+  width: 100%;
+}
+.hero__scene > * {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--w);
+  margin: 0;
+  transform: rotate(var(--r, 0deg));
+}
+.hero__scene svg { display: block; width: 100%; height: auto; overflow: visible; }
+.hero__scene .ground { z-index: 1; }
+.hero__scene .mascot, .hero__scene .cat { z-index: 2; }
+.hero__scene .annotation {
+  width: auto;
+  white-space: nowrap;
+  font-size: clamp(1.15rem, 2.2vw, 1.5rem); /* stays at or above 18px */
+  color: var(--green);
+}
+.mascot .pupil { transition: transform 0.18s ease-out; }

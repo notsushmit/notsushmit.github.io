@@ -1,0 +1,348 @@
+{
+  "meta": {
+    "name": "Sushmit Arora",
+    "title": "Sushmit Arora",
+    "description": "I build machine learning systems end to end: the model, the API, the tests, and the checks that tell me if the results can be trusted.",
+    "url": "https://notsushmit.github.io/",
+    "jobTitle": "Student, Machine Learning",
+    "og": {
+      "alt": "Sushmit Arora: Machine Learning, MLOps & Data Science, with a hand-drawn yellow mascot in glasses",
+      "tagline": "Machine Learning, MLOps & Data Science"
+    }
+  },
+  "nav": [
+    {
+      "label": "Work",
+      "href": "#work"
+    },
+    {
+      "label": "Skills",
+      "href": "#skills"
+    },
+    {
+      "label": "Experience",
+      "href": "#experience"
+    },
+    {
+      "label": "Recognition",
+      "href": "#recognition"
+    },
+    {
+      "label": "About",
+      "href": "#about"
+    },
+    {
+      "label": "Contact",
+      "href": "#contact"
+    },
+    {
+      "label": "Resume",
+      "href": "/assets/Sushmit_Arora_Resume.pdf"
+    }
+  ],
+  "sections": {
+    "work": "Work",
+    "skills": "Skills",
+    "experience": "Experience",
+    "recognition": "Recognition"
+  },
+  "hero": {
+    "greeting": "Hi, I'm Sushmit.",
+    "tagline": "I build machine learning systems end to end: the model, the API, the tests, and the checks that tell me if the results can be trusted.",
+    "cta": {
+      "label": "Say hi",
+      "menu": [
+        {
+          "label": "Email",
+          "href": "mailto:sushmitarora@gmail.com"
+        },
+        {
+          "label": "LinkedIn",
+          "href": "https://www.linkedin.com/in/sushmitarora/",
+          "newTab": true
+        },
+        {
+          "label": "GitHub",
+          "href": "https://github.com/notsushmit",
+          "newTab": true
+        }
+      ]
+    },
+    "annotation": "hi!"
+  },
+  "projects": [
+    {
+      "id": "thermoscope",
+      "name": "ThermoScope",
+      "problem": "A satellite can tell you something is burning at a spot in Gujarat. It can't tell you what caused it.",
+      "built": "It groups raw NASA FIRMS detections into 20,409 events, adds OpenStreetMap, power-plant and land-cover context, and a LightGBM model labels each as industrial, gas flare, crop residue or wildfire. A map dashboard sits on top, with 496 tests behind it. It's near real time: inference reruns every 30 minutes on the latest live FIRMS data.",
+      "stack": [
+        "Python",
+        "LightGBM",
+        "NASA FIRMS",
+        "OpenStreetMap",
+        "Leaflet"
+      ],
+      "links": [
+        {
+          "label": "Live demo",
+          "href": "https://notsushmit.github.io/thermoscope-sih26162/frontend/"
+        },
+        {
+          "label": "GitHub",
+          "href": "https://github.com/notsushmit/thermoscope-sih26162"
+        }
+      ],
+      "credit": "Built with Suvarcha Wadhwa. Mentor: Chiranjit Dutta.",
+      "screenshots": [
+        {
+          "src": "/assets/screenshots/thermoscope-map.jpg",
+          "alt": "ThermoScope dashboard: a map of Gujarat with heat events grouped into numbered clusters, filters for predicted class, status and land cover, and a list of recent events labelled crop residue or forest and wildfire.",
+          "caption": "Every detected heat event in Gujarat, clustered on the map"
+        },
+        {
+          "src": "/assets/screenshots/thermoscope-event-detail.jpg",
+          "alt": "ThermoScope detail panel for one event labelled crop residue at 95.2 percent: a close-up map of the site, the observed fire data, the distance to the nearest industrial site and power plant, and the model's probability for each class.",
+          "caption": "One event, with the evidence behind its label"
+        }
+      ]
+    },
+    {
+      "id": "retention",
+      "name": "Retention Decision Engine",
+      "problem": "A subscription business can see who already left. It can't tell who's about to, or why.",
+      "built": "Calibrated LightGBM and survival models predict who will lapse at 7 and 30 days, with per-customer reason codes. Served through FastAPI and Valkey with an MLflow registry, a Streamlit dashboard and about 2,900 tests, all in Docker Compose.",
+      "stack": [
+        "Python",
+        "LightGBM",
+        "SHAP",
+        "FastAPI",
+        "Valkey",
+        "MLflow",
+        "Docker",
+        "Streamlit"
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "href": "https://github.com/notsushmit/retention-engine"
+        }
+      ],
+      "credit": "",
+      "screenshots": [
+        {
+          "src": "/assets/screenshots/retention-overview.jpg",
+          "alt": "Retention dashboard overview: about 3,160 of 169,673 scored customers are expected to lapse in the next 7 days, with expected lapses for days 1 to 7, 8 to 30 and 31 to 59, and bar charts of the main reason codes.",
+          "caption": ""
+        },
+        {
+          "src": "/assets/screenshots/retention-planner.jpg",
+          "alt": "Retention action planner: a line chart of net value against contact budget, comparing the optimiser with highest-risk, random and no-action strategies. At a 5,000 budget the plan contacts 4,887 customers.",
+          "caption": ""
+        },
+        {
+          "src": "/assets/screenshots/retention-model_health.jpg",
+          "alt": "Retention model health page: model version 1 with every file matching its registered hash, and a table of calibration slopes and intercepts before and after a fix for the 7 and 30 day horizons.",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "id": "legal-rag",
+      "name": "Legal RAG Chatbot",
+      "problem": "A language model can tell you what the law says. It can't show you where it read it.",
+      "built": "It answers from indexed Indian statutes and judgments with bracketed citations, then checks that every citation matches a passage it retrieved, retrying or flagging it if not. Built in a week.",
+      "stack": [
+        "Python",
+        "FastAPI",
+        "LangChain",
+        "ChromaDB",
+        "sentence-transformers",
+        "Docker"
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "href": "https://github.com/notsushmit/legal-rag"
+        }
+      ],
+      "credit": "",
+      "screenshots": [
+        {
+          "src": "/assets/screenshots/legal-rag.jpg",
+          "alt": "Terminal window titled Legal Assistant RAG Chatbot, AI Legal Assistant for Indian Law. It lists four modes: Research to ask legal questions, Judgment to simulate or reference judgments, Summarize to generate headnotes or summaries, and Exit, with a prompt waiting for a choice.",
+          "caption": "The chatbot's terminal menu, with modes for research, judgments and summaries"
+        }
+      ]
+    }
+  ],
+  "howIWork": {
+    "heading": "How I work",
+    "points": [
+      {
+        "title": "Pass marks first",
+        "text": "I decide what counts as good enough before I see a single result."
+      },
+      {
+        "title": "Misses stay visible",
+        "text": "If a target isn't hit, the report says \"not met\". I don't tune it until it looks fine."
+      },
+      {
+        "title": "Context stays out",
+        "text": "Data that gives the answer away never goes into the model's inputs."
+      }
+    ]
+  },
+  "skills": [
+    {
+      "group": "Languages",
+      "items": [
+        "Python",
+        "SQL (basic)",
+        "C++",
+        "JavaScript"
+      ]
+    },
+    {
+      "group": "ML & Data",
+      "items": [
+        "LightGBM",
+        "scikit-learn",
+        "SHAP",
+        "Pandas",
+        "NumPy",
+        "Calibration",
+        "Survival Analysis"
+      ]
+    },
+    {
+      "group": "GenAI & LLMs",
+      "items": [
+        "RAG",
+        "LangChain",
+        "ChromaDB",
+        "sentence-transformers",
+        "Claude"
+      ]
+    },
+    {
+      "group": "Backend & Tools",
+      "items": [
+        "FastAPI",
+        "React.js",
+        "Streamlit",
+        "Leaflet",
+        "Docker",
+        "MLflow",
+        "Git",
+        "GitHub Actions",
+        "pytest"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "role": "Technical Lead",
+      "org": "Google Developer Groups SRMIST",
+      "start": "Sep 2025",
+      "end": "Present",
+      "points": [
+        "Lead the technical team.",
+        "Built a basic AI email automation and the frontend of the GDG web page.",
+        "Led and hosted the Prompt Rush 3.0 hackathon."
+      ]
+    },
+    {
+      "role": "Technical Team Member",
+      "org": "GENESIS Web3 Community",
+      "start": "Jul 2025",
+      "end": "Mar 2026",
+      "points": [
+        "Built the landing page of the website."
+      ]
+    }
+  ],
+  "recognition": [
+    {
+      "title": "Call2Code Hackathon, IEEE MUJ",
+      "detail": "Finalist, top 15 of 240",
+      "href": "https://drive.google.com/file/d/1ROvwwfKArqlhqwFQdCfKrYgXytQSdInb/view"
+    },
+    {
+      "title": "TechSprint Hackathon, GDG SRMIST",
+      "detail": "Top 10 Finalist",
+      "href": "https://drive.google.com/file/d/1AaDB9ryXB1YzeXtkaMEDs1QscCPCndsA/view"
+    },
+    {
+      "title": "Introduction to Data Science",
+      "detail": "Cisco",
+      "href": "https://drive.google.com/file/d/1oUMoJn4aESdEb7W68yk_ERSm2uqGeELR/view"
+    },
+    {
+      "title": "Data Visualisation Job Simulation",
+      "detail": "Tata",
+      "href": "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/MyXvBcppsW2FkNYCX_ifobHAoMjQs9s6bKS_ijrRFk7WSGKZnKzDb_1749289481016_completion_certificate.pdf"
+    },
+    {
+      "title": "Solutions Architecture Job Simulation",
+      "detail": "AWS",
+      "href": "https://www.theforage.com/completion-certificates/pmnMSL4QiQ9JCgE3W/kkE9HyeNcw6rwCRGw_pmnMSL4QiQ9JCgE3W_ijrRFk7WSGKZnKzDb_1733665089724_completion_certificate.pdf"
+    }
+  ],
+  "about": {
+    "heading": "A bit about me",
+    "traits": [
+      {
+        "name": "Curious",
+        "text": "When a number moves, I want to know why before I trust it.",
+        "doodle": "/assets/doodles/trait-curious.svg"
+      },
+      {
+        "name": "Whimsical",
+        "text": "I draw small characters in the margins of my notes. A few of them live on this site.",
+        "doodle": "/assets/doodles/trait-whimsical.svg"
+      },
+      {
+        "name": "Relentless",
+        "text": "I stay on a problem until it's solved, or until I can say clearly why it isn't.",
+        "doodle": "/assets/doodles/trait-relentless.svg"
+      },
+      {
+        "name": "Building with people",
+        "text": "My best work came from teams: a hackathon partner, a mentor, a club full of first-time builders.",
+        "doodle": "/assets/doodles/trait-building.svg"
+      }
+    ]
+  },
+  "contact": {
+    "heading": "Say hi",
+    "email": "sushmitarora@gmail.com",
+    "links": [
+      {
+        "label": "Email",
+        "href": "mailto:sushmitarora@gmail.com"
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/notsushmit"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/sushmitarora/"
+      },
+      {
+        "label": "Resume",
+        "href": "/assets/Sushmit_Arora_Resume.pdf"
+      }
+    ]
+  },
+  "footer": {
+    "text": "Sushmit Arora, 2026"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "heading": "Nothing here.",
+    "text": "This page doesn't exist, or it moved.",
+    "link": "Back to the homepage"
+  }
+}

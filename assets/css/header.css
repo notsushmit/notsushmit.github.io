@@ -1,0 +1,107 @@
+/* Sticky header: wordmark left, links right; a drawn menu panel below 800px. */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--cream);
+  border-bottom: var(--line-thin) solid var(--ink);
+}
+.site-header__inner {
+  max-width: calc(var(--max-width) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  min-height: var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 100;
+  font-weight: 600;
+  font-size: 1.3rem;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  white-space: nowrap;
+}
+
+/* desktop list */
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-1) clamp(0.6rem, 1.6vw, 1.4rem);
+}
+.site-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  text-decoration: none;
+  white-space: nowrap;
+  background-position: left calc(100% - 6px);
+  padding-bottom: 0;
+}
+@media (hover: hover) {
+  .site-nav a:hover { background-size: 100% 0.42em; }
+}
+/* current section: the hand-drawn line stays drawn */
+.site-nav a[aria-current] { background-size: 100% 0.42em; font-weight: 600; }
+
+/* menu button + panel: hidden on desktop */
+.menu-button { display: none; }
+.nav-panel { display: none; }
+
+@media (max-width: 799.98px) {
+  .nav-list { display: none; }
+  .menu-button { display: inline-flex; box-shadow: var(--shadow-mustard); padding-inline: 1.2rem; }
+
+  .nav-panel:popover-open { display: block; }
+  .nav-panel {
+    position: fixed;
+    inset: auto;
+    top: calc(var(--header-h) + var(--space-2));
+    right: var(--gutter);
+    width: min(17rem, calc(100vw - 2 * var(--gutter)));
+    margin: 0;
+    padding: var(--space-3) var(--space-4) var(--space-4);
+    color: var(--ink);
+    box-shadow: 5px 5px 0 var(--mustard);
+    overflow: visible;
+  }
+  .nav-panel::backdrop { background: rgba(20, 20, 20, 0.12); }
+  .nav-panel ul { list-style: none; margin: 0; padding: 0; }
+  .nav-panel li + li { border-top: 1px dashed rgba(20, 20, 20, 0.35); }
+  .nav-panel a { display: flex; width: 100%; font-size: 1.1rem; }
+  .nav-panel a[aria-current] { background-size: 6.5rem 0.42em; }
+  .nav-close {
+    display: flex;
+    margin: 0 0 var(--space-2) auto;
+    min-height: var(--tap);
+    min-width: var(--tap);
+    padding: 0 var(--space-3);
+    align-items: center;
+    justify-content: center;
+    font: inherit;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--ink);
+    background: none;
+    border: var(--line-thin) solid var(--ink);
+    border-radius: 999px;
+    cursor: pointer;
+  }
+}
+
+/* Browsers without popover support: show the plain list, wrapped, instead of the button. */
+@supports not selector(:popover-open) {
+  .menu-button { display: none !important; }
+  .nav-list { display: flex !important; flex-wrap: wrap; }
+}

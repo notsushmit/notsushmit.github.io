@@ -1,0 +1,88 @@
+/* Design tokens: the single place for colours, type, sizes and spacing.
+   Fonts are self-hosted from assets/fonts (Fontsource, OFL). */
+
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("../fonts/fraunces-latin-soft-normal.woff2") format("woff2-variations"),
+       url("../fonts/fraunces-latin-soft-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Instrument Sans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 700;
+  src: url("../fonts/instrument-sans-latin-wght-normal.woff2") format("woff2-variations"),
+       url("../fonts/instrument-sans-latin-wght-normal.woff2") format("woff2");
+}
+
+/* Handwritten, for tiny decorative annotations only. Never body text. */
+@font-face {
+  font-family: "Patrick Hand";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url("../fonts/patrick-hand-latin-400-normal.woff2") format("woff2");
+}
+
+:root {
+  /* palette */
+  --cream: #F1EEE6;
+  --ink: #141414;
+  --mustard: #E8C547;
+  --coral: #EE5A3F;
+  --blue: #5B73B0;
+  --green: #2F6B52;
+  --sky: #9CC7EE;
+
+  /* derived surfaces */
+  --paper: #F8F6F0;              /* slightly paler cream for cards and boxes */
+  --tint-mustard: #F2E3A6;
+  --tint-sky: #D3E4F2;
+  --tint-coral: #F5C3B2;
+  --tint-green: #C9DCCF;
+
+  /* type */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Instrument Sans", system-ui, sans-serif;
+  --font-hand: "Patrick Hand", "Comic Sans MS", cursive;
+
+  --text-sm: 0.9rem;
+  --text-base: 1.0625rem;
+  --text-h3: 1.3rem;
+  --text-h2: clamp(1.75rem, 3.6vw, 2.25rem);
+  --text-h1: clamp(2.5rem, 5.2vw, 4.25rem);
+  --text-hand: 1.35rem;          /* about 21px; never below 18px */
+
+  /* spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --space-9: 6rem;
+
+  /* widths */
+  --gutter: 16px;
+  --max-width: 72rem;            /* header and hero */
+
+  /* lines, shapes, shadows */
+  --line: 2.5px;
+  --line-thin: 1.5px;
+  --tap: 44px;                   /* minimum tap target */
+  --radius-hand: 22px 30px 18px 34px / 30px 18px 32px 22px;
+  --radius-hand-sm: 10px 14px 9px 16px / 14px 9px 15px 10px;
+  --shadow-coral: 4px 4px 0 var(--coral);
+  --shadow-coral-hover: 6px 6px 0 var(--coral);
+  --shadow-coral-press: 1px 1px 0 var(--coral);
+  --shadow-mustard: 4px 4px 0 var(--mustard);
+
+  --header-h: 64px;
+  --ease: cubic-bezier(.3, .7, .4, 1);
+}
